@@ -114,6 +114,9 @@ if(CMAKE_SYSTEM_NAME MATCHES "Linux")
         SET(CMOCKA_FLAGS "-std=gnu99 -Wpedantic -Wall -Wshadow -Wmissing-prototypes -Wcast-align -Werror=address -Wstrict-prototypes -Werror=strict-prototypes -Wwrite-strings -Werror=write-strings -Werror-implicit-function-declaration -Wpointer-arith -Werror=pointer-arith -Wdeclaration-after-statement -Werror=declaration-after-statement -Wreturn-type -Werror=return-type -Wuninitialized -Werror=uninitialized -Werror=strict-overflow -Wstrict-overflow=2 -Wno-format-zero-length -Wmissing-field-initializers -Wformat-security -Werror=format-security -fno-common -Wformat -fno-common -fstack-protector-strong")
         
         SET(CMAKE_AR gcc-ar)
+	 if(NOT CMAKE_C_COMPILER_VERSION VERSION_GREATER_EQUAL 9.3)
+		 SET(CMAKE_C_ARCHIVE_FINISH true)
+	 endif()
         
         SET(CMAKE_LINKER gcc)
         SET(CMAKE_EXE_LINKER_FLAGS "-flto -Wno-error -no-pie --coverage -lgcov -fprofile-arcs -ftest-coverage" )
