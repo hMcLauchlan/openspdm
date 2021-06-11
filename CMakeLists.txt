@@ -454,6 +454,7 @@ elseif(TESTTYPE STREQUAL "UnitTest")
             OsStub/DebugLib
             OsStub/RngLib
             OsStub/MemoryAllocationLib
+            OsStub/SpdmDeviceSecretLibNull
             SpdmEmu/SpdmDeviceSecretLib
             UnitTest/SpdmTransportTestLib
             UnitTest/CmockaLib
@@ -482,15 +483,10 @@ elseif(TESTTYPE STREQUAL "UnitFuzzing")
             OsStub/MemoryAllocationLib
             UnitTest/SpdmTransportTestLib
             SpdmEmu/SpdmDeviceSecretLib
+            OsStub/SpdmDeviceSecretLibNull
     )
-    
+
     SUBDIRS(UnitTest/Fuzzing/TestSpdmRequesterGetVersion
             UnitTest/Fuzzing/TestSpdmResponderVersion
     )
 endif()
-
-   
-
-
-
-
